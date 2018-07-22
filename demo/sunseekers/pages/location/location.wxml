@@ -1,0 +1,4 @@
+<button class="section" bindtap="transform">
+{{info}}
+</button>
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" markers='{{markers}}'>{{msg}}</map>

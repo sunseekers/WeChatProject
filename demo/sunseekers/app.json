@@ -1,0 +1,38 @@
+{
+  "pages": [ 
+    "pages/index/index",
+    "pages/camera/camera",
+    "pages/location/location"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#000", 
+    "navigationBarTextStyle": "white", 
+    "navigationBarTitleText": "sunseekers",
+    "backgroundColor": "#000000", 
+    "backgroundTextStyle": "light" 
+  },
+  "tabBar": {
+    "color": "#f6685d", 
+    "list": [ 
+        {
+          "pagePath": "pages/index/index", 
+          "text": "首页", 
+          "iconPath": "pages/image/h.png", 
+          "selectedIconPath": "pages/image/h1.png" 
+        },
+        {
+         
+          "pagePath": "pages/camera/camera",
+          
+          "iconPath": "pages/image/p.png",
+          "selectedIconPath": "pages/image/p1.png"
+        },
+        {
+          "pagePath": "pages/location/location",
+          "text": "位置",
+          "iconPath": "pages/image/location.png",
+          "selectedIconPath": "pages/image/location1.png"
+        }
+      ]
+    }
+}
