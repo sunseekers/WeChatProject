@@ -1,0 +1,33 @@
+<template name="calculator-operator">
+  <view wx:for="{{onOperator}}" >
+    <button hover-start-time="{{5}}" hover-stay-time="{{20}}" hover-class="calculator-key-hover" data-key="{{item.className}}" class="calculator-key {{item.className}}">{{item.display}}</button>
+    </view>
+</template>
+<template name="calculator-function">
+  <view wx:for="{{onFunction}}" >
+    <button hover-start-time="{{5}}" hover-stay-time="{{20}}" hover-class="calculator-key-hover" data-key="{{item.className}}" class="calculator-key {{item.className}}">{{item.display}}</button>
+    </view>
+</template>
+<template name="calculator-digit">
+  <view wx:for="{{onDigit}}" >
+    <button hover-start-time="{{5}}" hover-stay-time="{{20}}" hover-class="calculator-key-hover" data-key="{{item.className}}" class="calculator-key {{item.className}}">{{item.display}}</button>
+    </view>
+</template>
+<view class="calculator">
+  <view class="calculator-display">
+    <view class="calculator-display-text">{{displayValue}}</view>
+  </view>
+  <view class="calculator-keypad">
+    <view class="input-keys">
+      <view class="function-keys" catchtap="onTapFunction">
+        <template is="calculator-function" data="{{onFunction}}"/>
+      </view>
+      <view class="digit-keys" catchtap="onTapDigit">
+        <template is="calculator-digit" data="{{onDigit}}"/>
+      </view>
+    </view>
+    <view class="operator-keys" catchtap="onTapOperator">
+        <template is="calculator-operator" data="{{onOperator}}"/>
+    </view>
+  </view>
+</view>
