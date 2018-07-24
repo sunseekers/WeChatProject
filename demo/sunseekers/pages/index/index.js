@@ -22,7 +22,7 @@ Page({
       motto: '小猪佩奇很好看啊'
     })
   },
-  onLoad: function () {
+  onLoad(){
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -49,6 +49,16 @@ Page({
         }
       })
     }
+    console.log("onLoad:监听页面加载")
+  },
+  onReady(){
+    console.log("onReady:监听页面初次渲染完成")
+  },
+  onShow(){
+    console.log("onShow:监听页面显示")
+  },
+  onUnload(){
+    console.log("onUnload:监听页面卸载")
   },
   getUserInfo: function(e) {
     console.log(e)

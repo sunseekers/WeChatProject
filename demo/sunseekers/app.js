@@ -33,6 +33,13 @@ App({
         }
       }
     })
+    console.log("onLaunch:监听小程序初始化")
+  },
+  onShow(){
+    console.log("onShow:监听小程序显示")
+  },
+  onHide(){
+    console.log("onHide:听小程序隐藏")
   },
   globalData: {
     userInfo: null
