@@ -1,15 +1,11 @@
-<template name="calculator-operator">
-  <view wx:for="{{onOperator}}" >
-    <button hover-start-time="{{5}}" hover-stay-time="{{20}}" hover-class="calculator-key-hover" data-key="{{item.className}}" class="calculator-key {{item.className}}">{{item.display}}</button>
-    </view>
-</template>
+
 <template name="calculator-function">
-  <view wx:for="{{onFunction}}" >
+  <view wx:for="{{onFunction}}"  wx-key="item.className" >
     <button hover-start-time="{{5}}" hover-stay-time="{{20}}" hover-class="calculator-key-hover" data-key="{{item.className}}" class="calculator-key {{item.className}}">{{item.display}}</button>
     </view>
 </template>
 <template name="calculator-digit">
-  <view wx:for="{{onDigit}}" >
+  <view wx:for="{{onDigit}}" wx-key="item.className" >
     <button hover-start-time="{{5}}" hover-stay-time="{{20}}" hover-class="calculator-key-hover" data-key="{{item.className}}" class="calculator-key {{item.className}}">{{item.display}}</button>
     </view>
 </template>
@@ -27,7 +23,7 @@
       </view>
     </view>
     <view class="operator-keys" catchtap="onTapOperator">
-        <template is="calculator-operator" data="{{onOperator}}"/>
+        <my-operator is="calculator-operator" prop-onperator="{{onOperator}}"></my-operator>
     </view>
   </view>
 </view>

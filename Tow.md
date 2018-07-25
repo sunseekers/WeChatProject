@@ -32,3 +32,18 @@ Page({
   }
 })
  ```
+ ## 自定义组件
+ 我假设你知道 `vue` 里面是如何自定义组件的，那么我和可以和小程序的自定义组件说 `so easy`，语法有异曲同工之妙；具体怎么用我们看看就知道了。
+ >* 创建组件
+
+<img src='image/component.png'>
+<img src='image/components.png'>
+
+>* 引用组件
+
+<img src='image/components1.png'>
+
+你现在已经知道怎么创建使用自定义组件了，就是这么简单容易。哈哈
+[项目介绍案例地址](https://github.com/sunseekers/WeChatProject/tree/master/demo/calculate)
+
+[学习资料参考](https://github.com/justjavac/awesome-wechat-weapp)

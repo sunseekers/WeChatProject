@@ -40,4 +40,4 @@ https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html?t=201871
 
 接下来好好看看文档，学习学习他们的语法，你就可以上手项目了；
 续更语法，文字版小项目。手把手教你入门小程序
-[项目介绍案例地址]()
+[项目介绍案例地址](https://github.com/sunseekers/WeChatProject/tree/master/demo/sunseekers)
