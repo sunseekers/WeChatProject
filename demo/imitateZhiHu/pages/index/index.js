@@ -1,54 +1,92 @@
-//index.js
-//获取应用实例
-const app = getApp()
+let util = require('../../utils/util.js')
+let app = getApp()
 
 Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+  data:{
+    feed:[],
+    feed_length:0
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindItemTap(){
     wx.navigateTo({
-      url: '../logs/logs'
+      url:"../answer/answer"
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+  bindQueTap(){
+    wx.navigateTo({
+      url:'../question/question'
+    })
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  onLoad(){
+    let that = this
+    this.getData()
+  },
+  upper(){
+    wx.showNavigationBarLoading()// 在当前页面显示导航条加载动画。
+   this.refresh();
+    setTimeout(function () { wx.hideNavigationBarLoading(); wx.stopPullDownRefresh(); }, 2000);
+  },
+  lower(e){
+    wx.showNavigationBarLoading();
+    var that = this;
+    setTimeout(function () { wx.hideNavigationBarLoading(); that.nextLoad(); }, 1000);   
+  },
+  //网络请求数据，实现首页刷新
+  refresh0(){
+    let index_api = ''
+    util.getData(index_api).then(res=>{
+      console.log(res)
+    })
+  },
+  //使用本地 fake 数据实时刷新效果
+  getData(){
+    let feed = util.getData2()
+    let feed_data = feed.data
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      feed:feed_data,
+      feed_length:feed_data.length
     })
+  },
+  refresh(){
+    wx.showToast({
+      title: '刷新中',
+      icon: 'loading',
+      duration: 3000
+    });
+    var feed = util.getData2();
+    console.log("loaddata");
+    var feed_data = feed.data;
+    this.setData({
+      feed: feed_data,
+      feed_length: feed_data.length
+    });
+    setTimeout(function () {
+      wx.showToast({
+        title: '刷新成功',
+        icon: 'success',
+        duration: 2000
+      })
+    }, 3000)
+  },
+   //使用本地 fake 数据实现继续加载效果
+  nextLoad(){
+    wx.showToast({
+      title:"加载中",
+      icon:'loading',
+      duration:4000
+    })
+    let next = util.getNext();
+    let next_data = next.data
+    this.setData({
+      feed:this.data.feed/concat(next_data),
+      feed_length:this.data.feed_length + next_data.length
+    });
+    setTimeout(function () {
+      wx.showToast({
+        title: '加载成功',
+        icon: 'success',
+        duration: 2000
+      })
+    }, 3000)
   }
 })

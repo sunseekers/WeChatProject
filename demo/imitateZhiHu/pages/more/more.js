@@ -1,18 +1,25 @@
 // pages/more/more.js
+let util = require('../../utils/util.js')
+let app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    motto: "Welcome to zhihu",
+  userInfo:{}
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad(options) {
+    let that = this
+    app.getUserInfo(userInfo=>{
+      that.setData({
+        userInfo:userInfo
+      })
+    })
   },
 
   /**

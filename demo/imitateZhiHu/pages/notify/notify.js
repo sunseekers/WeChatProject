@@ -1,13 +1,19 @@
 // pages/notify/notify.js
+let util = require("../../utils/util.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    navTab:["通知","赞与感谢","关注"],
+    currentNavtab: "0"
   },
-
+switchTab(e){
+  this.setData({
+    currentNavtab: e.currentTarget.dataset.idx
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */
