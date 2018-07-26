@@ -6,7 +6,9 @@
     "pages/notify/notify",
     "pages/discovery/discovery",
     "pages/question/question",
-    "pages/answer/answer"
+    "pages/answer/answer",
+    "pages/base/content/content",
+    "pages/base/swiper/swiper"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,19 +37,19 @@
       {
         "pagePath": "pages/notify/notify",
         "text": "大学",
-        "iconPath": "images/ring.png",
-        "selectedIconPath": "images/ring_focus.png"
+        "iconPath": "images/university.png",
+        "selectedIconPath": "images/university_focus.png"
       },
       {
         "pagePath": "pages/chat/chat",
         "text": "通知",
-        "iconPath": "images/chat.png",
-        "selectedIconPath": "images/chat_focus.png"
+        "iconPath": "images/ring.png",
+        "selectedIconPath": "images/ring_focus.png"
       },
       {
         "pagePath": "pages/more/more",
         "text": "我的",
-        "iconPath": "images/burger.png",
+        "iconPath": "images/more.png",
         "selectedIconPath": "images/burger_focus.png"
       }
     ]

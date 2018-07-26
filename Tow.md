@@ -43,7 +43,16 @@ Page({
 
 <img src='image/components1.png'>
 
-你现在已经知道怎么创建使用自定义组件了，就是这么简单容易。哈哈
-[项目介绍案例地址](https://github.com/sunseekers/WeChatProject/tree/master/demo/calculate)
+你现在已经知道怎么创建使用自定义组件了，就是这么简单容易。
+[计算器案例地址](https://github.com/sunseekers/WeChatProject/tree/master/demo/calculate)
+[仿知乎案例](https://github.com/sunseekers/WeChatProject/tree/master/demo/imitateZhiHu)，数据模仿，没有抓取接口，没有交互，纯属静态页面，主要是为了熟悉掌握语法，为了后续学习做准备。
+
+<img src="image/zhihu.png">
+
+[仿知乎参考案例](https://github.com/RebeccaHanjw/weapp-wechat-zhihu)，在原有的基础上稍微改进了一下，改进地方在引入自定义组件。
+
+我假设你也会 `vue` ，读一两遍官方文档，敲一遍上面两个简单的案例。对于小程序那应该是掌握差不多了。接下来准备用小程序仿一个 `QQ` 音乐，引入复杂的交互，接口抓取实时数据，尽我最大可能的还原生 `APP` 体验。
+
+
 
 [学习资料参考](https://github.com/justjavac/awesome-wechat-weapp)

@@ -1,0 +1,13 @@
+/* pages/base/swiper/swiper.wxss */
+.active{
+  color: #ffffff;
+  border-bottom: solid 2px #ffffff;
+}
+.activity{
+  width: 750rpx;
+  height: 375rpx;
+}
+.activity image{
+  width: 750rpx;
+  height: 375rpx;
+}

@@ -7,16 +7,16 @@ Page({
     feed_length:0
   },
   //事件处理函数
-  bindItemTap(){
-    wx.navigateTo({
-      url:"../answer/answer"
-    })
-  },
-  bindQueTap(){
-    wx.navigateTo({
-      url:'../question/question'
-    })
-  },
+  // bindItemTap(){
+  //   wx.navigateTo({
+  //     url:"../answer/answer"
+  //   })
+  // },
+  // bindQueTap(){
+  //   wx.navigateTo({
+  //     url:'../question/question'
+  //   })
+  // },
   onLoad(){
     let that = this
     this.getData()
