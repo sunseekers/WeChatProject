@@ -1,0 +1,32 @@
+/**index.wxss**/
+page {
+    height: 100%;
+}
+/* 导航 */
+.navBar {
+    display: flex;
+    background: #fff;
+    height: 80rpx;
+}
+
+.navBar .item {
+    position: relative;
+    flex: auto;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.navBar .item.active {
+    color: #31c27c;
+}
+
+.navBar .item.active:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4rpx;
+    background: #31c27c;
+}

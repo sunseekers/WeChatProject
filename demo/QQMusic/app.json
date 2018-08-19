@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/toplist/toplist",
+    "pages/playsong/playsong"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#31c27c",
+    "navigationBarTitleText": "仿QQ音乐",
+    "navigationBarTextStyle": "#fff"
+  }
+}

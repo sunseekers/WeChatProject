@@ -1,0 +1,9 @@
+<!--components/swiper/swiper.wxml-->
+  <swiper class="swiper" circular="true" indicator-dots="true" autoplay="true" interval="3000" duration="500" indicator-color="rgba(255,255,255,.8)"
+    indicator-active-color="#31c27c">
+    <block wx:for="{{sliderList}}" wx:key="{{index}}">
+      <swiper-item data-id="{{item.id}}" data-url="{{item.linkUrl}}">
+        <image src="{{item.picUrl}}" class="img" />
+      </swiper-item>
+    </block>
+  </swiper>

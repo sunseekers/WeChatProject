@@ -1,0 +1,15 @@
+
+<view class="topList">
+  <view class="item" wx:for="{{singList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="onToplistTap" >
+  <text class="list-group-title">{{item.title}}</text>
+  <view class="media" wx:for="{{item.items}}" wx:key="{{item.id}}">
+    <image class="img" src="{{item.avatar}}"></image>
+    <text class="name">{{item.name}}</text>
+  </view>
+  </view>
+    <view class="list-shortcut">
+      <view wx:for="{{singList}}">
+        <text>{{item.title}}</text>
+      </view>
+  </view>
+</view>

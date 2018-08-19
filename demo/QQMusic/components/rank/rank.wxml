@@ -1,0 +1,16 @@
+<!--components/rank/rank.wxml-->
+<view class="topList">
+  <view class="item" wx:for="{{topList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="onToplistTap">
+    <view class="media">
+      <image class="img" src="{{item.picUrl}}"></image>
+      <text class="count">{{item.listenCount}}</text>
+    </view>
+    <view class="info">
+      <text class="title">{{item.topTitle}}</text>
+      <view class="text" wx:for="{{item.songList}}" wx:key="unique">{{index+1}}
+        <text>{{item.songname}}</text>- {{item.singername}}
+      </view>
+    </view>
+    <view class="arrow"></view>
+  </view>
+</view>

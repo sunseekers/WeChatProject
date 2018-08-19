@@ -1,0 +1,16 @@
+<!--导航栏-->
+<view class="navBar">
+  <text class="item {{currentTab==index ? 'active' : ''}}" wx:for="{{navBar}}" wx:key="{{index}}" data-index="{{index}}" bindtap="onNavbarTap">{{item}}</text>
+</view>
+<view class="recommend" hidden="{{currentTab!==0}}">
+  <recommend></recommend>
+</view>
+<view class="singer" hidden="{{currentTab!==1}}"> 
+  <singer></singer>
+</view>
+<view  class="rank" hidden="{{currentTab!==2}}"> 
+  <rank></rank>
+</view>
+<view  class="search" hidden="{{currentTab!==3}}"> 
+  <search></search>
+</view>
