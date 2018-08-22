@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <view wx:if='{{noUser}}' class="tip">
+    <text>用户名或者密码不正确</text>
+  </view>
+<image  class="logn-back" src="{{lognBack}}" mode="aspectFill"></image>
+  <view class="userinfo">
+    <block >
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{logn}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{lognName}}</text>
+    </block>
+    <form bindsubmit="formSubmit">
+      <view>
+        <input name="name" placeholder-class="phcolor" class="weui-input" placeholder="请输入您的账号" />
+      </view>
+      <view>
+        <input name="password" placeholder-class="phcolor" class="weui-input" password placeholder="请输入您的密码" />
+      </view>
+      <view>
+        <button class="btn-area" formType="submit">登录</button>
+      </view>
+    </form>
+  </view>
+</view>
