@@ -1,0 +1,37 @@
+<!--pages/singer/singer.wxml-->
+<view class="list-fixed" ref="fixed" v-show="fixedTitle">
+  <text class="fixed-title">{{title}} </text>
+</view>
+
+<scroll-view class="scroll_left" scroll-y='true'>
+  <view class="list-shortcut">
+    <block wx:for="{{singList}}"  bindtap='goTo' data-index="{{index}}" wx:key="*this">
+     <view class="nav_left_items {{currentIndex == index ? 'active':''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.title}}" id="{{item.title}}">{{item.title}}</view> 
+    </block>
+  </view>
+</scroll-view>
+
+<scroll-view scroll-y='true' class="topList" style="height:{{windowHeight}}px;" scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" bindscroll="scrollTop">
+  <view class="item" wx:for="{{singList}}" wx:key="{{item.id}}" data-id="{{item.title}}"  id="{{item.title}}" >
+  <text class="list-group-title" >{{item.title}}</text>
+    <view class="media" wx:for="{{item.items}}" wx:key="{{item.id}}" >
+      <image class="img" src="{{item.avatar}}"></image>
+      <text class="name">{{item.name}}</text>
+    </view>
+  </view>
+</scroll-view>
+<!-- <view class="topList">
+  <view class="item" wx:for="{{singList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="onToplistTap" >
+  <text class="list-group-title">{{item.title}}</text>
+  <view class="media" wx:for="{{item.items}}" wx:key="{{item.id}}">
+    <image class="img" src="{{item.avatar}}"></image>
+    <text class="name">{{item.name}}</text>
+  </view>
+  </view>
+    <view class="list-shortcut">
+      <view wx:for="{{singList}}" bindtap='goTo' data-index="{{index}}">
+        <text class="{{currentIndex == index ? 'active':''}}">{{item.title}}</text>
+      </view>
+  </view>
+</view> -->
+
