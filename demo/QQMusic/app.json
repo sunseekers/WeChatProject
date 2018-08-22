@@ -1,13 +1,37 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/recommend/recommend",
     "pages/toplist/toplist",
-    "pages/playsong/playsong"
+    "pages/playsong/playsong",
+    "pages/singer/singer",
+    "pages/rank/rank",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#31c27c",
     "navigationBarTitleText": "仿QQ音乐",
     "navigationBarTextStyle": "#fff"
+  },
+  "tabBar":{
+    "list":[
+      {
+        "pagePath":"pages/recommend/recommend",
+        "text":"推荐"
+      },
+      {
+        "pagePath":"pages/singer/singer",
+        "text":"歌手"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text":"排行"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索"
+      }
+    ],
+    "position":"top"
   }
 }
