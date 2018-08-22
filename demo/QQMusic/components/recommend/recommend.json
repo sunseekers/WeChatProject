@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "swiper": "../swiper/swiper"
-  }
-}

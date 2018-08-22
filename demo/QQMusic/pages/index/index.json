@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "recommend":"../../components/recommend/recommend",
-    "rank": "../../components/rank/rank",
-    "search": "../../components/search/search",
-    "singer": "../../components/singer/singer"
-  }
-}
