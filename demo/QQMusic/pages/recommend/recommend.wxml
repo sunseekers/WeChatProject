@@ -1,0 +1,28 @@
+<!--pages/recommend/recommend.wxml-->
+<view class="recommend ">
+  <swiper sliderList="{{swiperData}}"></swiper>
+  <view class="channel">
+    <text class="title">电台</text>
+    <view class="list">
+      <view class="item" wx:for="{{radioList}}" wx:key="{{index}}" data-id="{{item.radioid}}">
+        <view class="list-media">
+          <image class="img" src="{{item.picUrl}}"></image>
+        </view>
+        <text class="text">{{item.Ftitle}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="channel">
+    <text class="title">热门歌单</text>
+    <view class="list">
+      <view class="item songitem" wx:for="{{songList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="onCdlistTap">
+        <view class="list-media">
+          <image class="img" src="{{item.picUrl}}"></image>
+          <text class="list-count">{{item.accessnum}}</text>
+        </view>
+        <text class="text">{{item.songListDesc}}</text>
+        <text class="author">{{item.songListAuthor}}</text>
+      </view>
+    </view>
+  </view>
+</view>
