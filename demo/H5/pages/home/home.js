@@ -16,6 +16,8 @@ Page({
     dateType:1,
     shopId:'',
     list: ['今日','昨日','本月','上月'],
+    chartList:['销售额','毛利额'],
+    currentChar:0,
     menuList:[],
     index: 0,
     listData: ['../../image/i1.png','../../image/i2.png'],
@@ -71,6 +73,11 @@ Page({
     let shopId = this.data.shopId
     this.getSaleData(token, dateType, shopId)
     this.getSelectGraphi(token, shopId)
+  },
+  onChart(e){
+    this.setData({
+      currentChar: e.currentTarget.dataset.index
+    })
   },
   bindPickerChange (e) {
     let menuList = this.data.menuList

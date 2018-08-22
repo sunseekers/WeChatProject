@@ -42,6 +42,14 @@ page {
   width: 100%;
   padding-bottom: 5px;
 }
+.chartTab{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  width: 50%;
+  padding-bottom: 5px;
+}
 .tabList {
   padding-top: 10rpx;
   width: 100%;
