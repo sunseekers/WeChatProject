@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
-  <view wx:if='{{noUser}}' class="tip">
-    <text>用户名或者密码不正确</text>
+  <view class="toast" wx:if='{{noUser}}'>
+    <text class="toast-msg">{{msg}}</text>
   </view>
 <image  class="logn-back" src="{{lognBack}}" mode="aspectFill"></image>
   <view class="userinfo">

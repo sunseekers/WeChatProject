@@ -21,7 +21,7 @@ Page({
     menuList:[],
     index: 0,
     listData: ['../../image/i1.png','../../image/i2.png'],
-    title:"总部",
+    title:"全部",
     swiperList:[
       {
         "name":"销售额",
@@ -78,6 +78,14 @@ Page({
     this.setData({
       currentChar: e.currentTarget.dataset.index
     })
+    let token = app.globalData.token
+    let shopId = this.data.shopId
+    if (e.currentTarget.dataset.index == 1){
+      let currentChar = e.currentTarget.dataset.index
+      this.getSelectGraphi(token, shopId, currentChar)
+    }else {
+      this.getSelectGraphi(token, shopId)
+    }
   },
   bindPickerChange (e) {
     let menuList = this.data.menuList
@@ -108,18 +116,40 @@ Page({
       }
     })
   },
-  getSelectGraphi(token,shopId){
+  touchHandler: function (e) {
+    console.log(129)
+    lineChart.scrollStart(e);
+  },
+  moveHandler: function (e) {
+    console.log(22)
+    lineChart.scroll(e);
+  },
+  touchEndHandler: function (e) {
+    console.log(12)
+    lineChart.scrollEnd(e);
+    lineChart.showToolTip(e, {
+      format: function (item, category) {
+        return category + ' ' + item.name + ':' + item.data
+      }
+    });
+  },
+  getSelectGraphi(token, shopId, Profit){
     let that = this
     api.selectDataGraphi(token, shopId, data => {
       let serialNumber = data.data.map(item => {
         return item.salesVolume == null ? 0 : item.salesVolume
+      })
+      let grossProfit = data.data.map(item => {
+        return item.grossProfit == null ? 0 : item.grossProfit
       })
       let lastWeekSalesVolume = data.data.map(item => { 
         return item.lastWeekSalesVolume == null ? 0 : item.lastWeekSalesVolume
         })
       let dataTime = data.data.map(item => { return item.date })
       var windowWidth = 320;
-      console.log(data.data)
+      if (Profit) {
+        serialNumber = grossProfit
+      }
       console.log(serialNumber)
       lineChart = new wxCharts({
         canvasId: 'lineCanvas',
@@ -143,6 +173,9 @@ Page({
         height: 200,
         dataLabel: false,
         dataPointShape: true,
+        // dataLabel: true,
+        // dataPointShape: true,
+        // enableScroll: true,
         extra: {
           lineStyle: 'curve'
         }

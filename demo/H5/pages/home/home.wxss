@@ -162,6 +162,7 @@ border: 1px red solid;
 border-right: 0;
 border-bottom: 0;
 width: 100%;
+margin-bottom: 20px;
 }
 
 .tr {

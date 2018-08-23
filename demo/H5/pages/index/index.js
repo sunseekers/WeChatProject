@@ -11,12 +11,20 @@ Page({
     lognName:"品鲜系统",
     hasUserInfo: false,
     noUser:false,
+    msg:""
   },
   formSubmit(e) {
     // wx.navigateTo({
     //   url: '../home/home'
     // })
     let that = this
+    if (e.detail.value.name!='000001'){
+      that.setData({ "noUser": true, msg: "此账号暂无权限" })
+      setTimeout(() => {
+        that.setData({ "noUser": false })
+      }, 1000)
+      return
+    }else{
     api.signIn(e.detail.value,function(res){
        if (res.result.success == true){
          console.log(res.data.token)
@@ -29,13 +37,14 @@ Page({
            })
          })
        }else {
-         that.setData({ "noUser": true })
+         that.setData({ "noUser": true, msg:"用户名或者密码不正确" })
          setTimeout(()=>
          {
            that.setData({"noUser":false})
          },1000)
        }
     })
+    }
   },
   //事件处理函数
   bindViewTap: function() {
