@@ -33,7 +33,13 @@
     </view>
   </view>
   <view>
-    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+  <view class="chartTab">
+    <block wx:for-items="{{chartList}}" wx-for-item="item" wx:key="*this" >
+      <text class="tabList {{currentChar==index ? 'active' : ''}}"  data-index="{{index}}" bindtap="onChart">{{item}}</text>
+    </block>
+  </view> 
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" 
+    bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
       <view class="chart"> 
       <!-- 安卓手机调试这段代码没有作用 -->
     <!-- <block wx:for-items="{{listData}}" wx-for-item="item" wx:key="*this" >
