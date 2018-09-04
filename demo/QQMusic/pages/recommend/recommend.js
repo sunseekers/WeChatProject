@@ -1,5 +1,6 @@
 // pages/recommend/recommend.js
 const api = require('../../API/index.js')
+const app = getApp()
 Page({
 
   /**
@@ -15,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app)
     let that = this;
     api.getRecommend(data => {
       that.setData({ swiperData: data.data.slider, radioList: data.data.radioList, songList: data.data.songList });
@@ -32,7 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log(this.route)
   },
 
   /**
@@ -62,7 +64,6 @@ Page({
   onReachBottom: function () {
   
   },
-
   /**
    * 用户点击右上角分享
    */

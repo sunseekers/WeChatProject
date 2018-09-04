@@ -113,6 +113,7 @@ Page({
     var searchKeyword = that.data.searchKeyword;
     that.setData({ searchLoading: true, scrollFlag: false });
     api.getSearchMusic(searchKeyword, searchPageNum, function (res) {
+      console.log(res.data)
       var res = res.data;
       that.setData({
         searchSongList: that
@@ -121,9 +122,9 @@ Page({
           .concat(res.song.list),
         zhida: res.zhida,
         searchLoading: false,
-        searchPageNum: res.song.curpage,
-        searchTotalNum: res.song.totalnum,
-        searchPageSize: res.song.curnum,
+        // searchPageNum: res.song.curpage,
+        // searchTotalNum: res.song.totalnum,
+        // searchPageSize: res.song.curnum,
         scrollFlag: true
       });
     });

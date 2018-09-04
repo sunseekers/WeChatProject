@@ -14,10 +14,13 @@
     "navigationBarTextStyle": "#fff"
   },
   "tabBar":{
+    "selectedColor":"#31c27c",
+    "position": "top",
     "list":[
       {
         "pagePath":"pages/recommend/recommend",
-        "text":"推荐"
+        "text":"推荐",
+        "color":"red"
       },
       {
         "pagePath":"pages/singer/singer",
@@ -31,7 +34,6 @@
         "pagePath": "pages/search/search",
         "text": "搜索"
       }
-    ],
-    "position":"top"
+    ]
   }
 }

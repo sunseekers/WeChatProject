@@ -12,10 +12,10 @@ Page({
     HOT_NAME: '热',
     HOT_SINGER_LEN: 10,
     title: '热',
-    currentIndex:0,
-    windowHeight:'',
-    scrollTopId:'',
-    heightList:[]
+    currentIndex:0,//右边样式变化的索引
+    windowHeight:'',//页面的高度，y轴的滚动位置高度
+    scrollTopId:'',//锚点滚动
+    heightList:[]//获取每块滚动位置的高度，用来后面的联动
   },
 
   /**
@@ -27,7 +27,6 @@ Page({
       let songList = that._normalizeSinger(data.list)
       that.setData({ singList: songList })
       this.getHeight()
-      console.log(songList)
     })
   },
   getHeight(){
@@ -38,14 +37,6 @@ Page({
        height.push(eleHeight)
     })
     this.setData({heightList: height })
-  // console.log(this.data.heightList)
-  },
-  goTo(e){
-    //点击的时候应该滚动到相对应的位置中去,不能用scroll-view组件，自己另外想别的办法
-    let index = e.currentTarget.dataset.index
-    this.setData({ currentIndex: index})
-    this.setData({ title: this.data.singList[index].title })
-    console.log(e.currentTarget)
   },
   _normalizeSinger(list) {
     let map = {
@@ -85,7 +76,6 @@ Page({
     let hot = []
     for (let key in map) {
       let val = map[key]
-      //console.log(val)
       if (val.title.match(/[a-zA-Z]/)) {
         ret.push(val)
       } else if (val.title === this.data.HOT_NAME) {
@@ -96,15 +86,13 @@ Page({
       return a.title.charCodeAt(0) - b.title.charCodeAt(0)
     })
     return hot.concat(ret)
-    console.log(hot.concat(ret))
   },
   // onPageScroll(e){
   // /**
   //  * 1.计算每个小题目底下的高度，每一个高71px
   //  * 2.当每个小标题滚完了的时候进行标题替换
-  //  * 
+  //  * 3.没有办法进行左右联动，只能换滑动组件
   //  */
-  // console.log(8989)
   // let height = []
   //   let eleHeight = 0
   //   this.data.singList.forEach(item=>{
@@ -119,9 +107,6 @@ Page({
   //   if (titleName) {//应该有个异常处理，滚动到最底下的时候,否则控制台会报错
   //     this.setData({ title: titleName})
   //   }
-  //   console.log(this.data.currentIndex)
-  //   console.log(height)
-  //   console.log(e.scrollTop)
   // },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -144,12 +129,8 @@ Page({
     let index = this.data.heightList.findIndex((item) => {
       return item > e.detail.scrollTop
     })
-    console.log(index)
+    //console.log(index)
     this.setData({ currentIndex: index, title: this.data.singList[index].title})
-    // let titleName = this.data.singList[index].title
-    // if (titleName) {//应该有个异常处理，滚动到最底下的时候,否则控制台会报错
-    //   this.setData({ title: titleName })
-    // }
   },
   switchRightTab(e){
     let id = e.target.dataset.index
